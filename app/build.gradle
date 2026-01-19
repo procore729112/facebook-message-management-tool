@@ -1,0 +1,51 @@
+```groovy
+// Apply the Android application plugin to build the Android project
+apply plugin: 'com.android.application'
+
+// The application ID uniquely identifies the app and is used for Play Store submissions
+android {
+    compileSdkVersion 34 // This configuration enables the use of the latest SDK features
+
+    defaultConfig {
+        applicationId "com.madhub.facebookmessagemanag" // Sets the application ID for the Facebook message management tool
+        minSdkVersion 21 // This allows the app to run on a wide range of devices starting from API level 21
+        targetSdkVersion 34 // Targets the latest SDK version to optimize app performance and compatibility
+        versionCode 1 // Initial version code for the app
+        versionName "1.0.0" // Version name representing the application version
+        resConfigs "en" // Configures the resource files to support the English language
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false // Disables code shrinking for release builds
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Configure Kotlin options if needed for modern Android development
+    kotlinOptions {
+        jvmTarget = "1.8" // Specifies the JVM target version for Kotlin
+    }
+}
+
+// This powerful dependency enables the use of Retrofit for making network requests
+dependencies {
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0' // Retrofit for efficient API calls to manage Facebook messages
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0' // Converter for handling JSON data with Retrofit
+
+    // This comprehensive capability allows for background tasks and scheduled operations
+    implementation 'androidx.work:work-runtime:2.7.1' // WorkManager for managing background operations, essential for automation tasks
+
+    // A flexible configuration option for image loading
+    implementation 'com.github.bumptech.glide:glide:4.13.2' // Glide for loading and caching images efficiently in the application
+
+    // Essential libraries for Android development
+    implementation 'androidx.appcompat:appcompat:1.6.0' // Provides backward-compatible features
+    implementation 'androidx.core:core-ktx:1.10.1' // Enhancements for Kotlin usability
+}
+
+// This project configuration ensures compliance with Android's architecture guidelines
+// and leverages MadHub’s technical characteristics for seamless operation on Android
+```
+
+This `build.gradle` configuration file leverages MadHub's features to create a robust Android application focused on Facebook message management capabilities. It emphasizes the powerful automation and scheduling features, ensuring compliance with Android standards and practices.
